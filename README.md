@@ -28,7 +28,7 @@ Sistem manajemen reservasi ruang rapat yang modern dan user-friendly dibangun de
 - Sistem reservasi ruang yang user-friendly
 - Approval workflow untuk admin
 - Dashboard analytics
-- Export laporan ke PDF
+- Export laporan ke PDF(maintenance)
 
 Aplikasi ini dibangun dengan teknologi terkini dan design yang modern serta responsif.
 
@@ -59,7 +59,7 @@ Aplikasi ini dibangun dengan teknologi terkini dan design yang modern serta resp
 - ✅ Manage ruang rapat
 - ✅ View laporan
 
-### 📊 Reporting
+### 📊 Reporting (onprogress)
 - ✅ Export ke PDF
 - ✅ Laporan reservasi
 - ✅ Data analytics
@@ -346,15 +346,15 @@ Setelah seeder dijalankan, gunakan credentials berikut:
 
 ### Admin Account
 ```
-Email: admin@example.com
-Password: password
+Email: admin@mail.com
+Password: password123
 Role: Admin
 ```
 
 ### Regular User
 ```
-Email: user@example.com
-Password: password
+Email: user@mail.com
+Password: password123
 Role: User
 ```
 
