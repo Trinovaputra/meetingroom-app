@@ -1,58 +1,536 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏢 Meeting Room Reservation System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem manajemen reservasi ruang rapat yang modern dan user-friendly dibangun dengan Laravel, Bootstrap, dan modern web technologies.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Daftar Isi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Tentang Proyek](#tentang-proyek)
+- [Fitur Utama](#fitur-utama)
+- [Persyaratan Sistem](#persyaratan-sistem)
+- [Instalasi](#instalasi)
+- [Konfigurasi Environment](#konfigurasi-environment)
+- [Setup Database](#setup-database)
+- [Running Aplikasi](#running-aplikasi)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
+- [Struktur Proyek](#struktur-proyek)
+- [Dokumentasi Tambahan](#dokumentasi-tambahan)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📖 Tentang Proyek
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Meeting Room Reservation System** adalah aplikasi web untuk manajemen reservasi ruang rapat dengan fitur:
+- Autentikasi pengguna dengan role-based access control (Admin & User)
+- Manajemen ruang rapat dengan foto
+- Sistem reservasi ruang yang user-friendly
+- Approval workflow untuk admin
+- Dashboard analytics
+- Export laporan ke PDF
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Aplikasi ini dibangun dengan teknologi terkini dan design yang modern serta responsif.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## ✨ Fitur Utama
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 👥 User Management
+- ✅ Registrasi dan login
+- ✅ Two-role system: Admin & User
+- ✅ Profile management
+
+### 🏫 Room Management (Admin)
+- ✅ Create, read, update, delete ruang rapat
+- ✅ Upload foto ruang
+- ✅ Set kapasitas dan lokasi
+- ✅ View semua reservasi ruang
+
+### 📅 Reservation System (User)
+- ✅ Browse dan reservasi ruang
+- ✅ View status reservasi
+- ✅ Buat reservasi dengan tanggal & waktu
+- ✅ Cancel reservasi
+
+### ⚙️ Admin Dashboard
+- ✅ Review dan approve/reject reservasi
+- ✅ Dashboard analytics
+- ✅ Manage ruang rapat
+- ✅ View laporan
+
+### 📊 Reporting
+- ✅ Export ke PDF
+- ✅ Laporan reservasi
+- ✅ Data analytics
+
+---
+
+## 💻 Persyaratan Sistem
+
+### Environment
+- **PHP**: 8.3 atau lebih tinggi
+- **Composer**: Latest version
+- **Node.js**: 18+ dan npm
+- **MySQL**: 5.7+
+- **Git**: untuk version control
+
+### Paket PHP
+- Laravel 13.8
+- Spatie Laravel Permission 7.4
+- BarryVdh Laravel DomPDF 3.1
+- PHPUnit 12.5
+
+### Node Packages
+- Bootstrap 5.3.8
+- TailwindCSS 4.0
+- Vite 8.0
+- Chart.js 4.5
+- SweetAlert2 11.26
+
+---
+
+## 🚀 Instalasi
+
+### Step 1: Clone Repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <repository-url>
+cd meetingroom-app
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Step 2: Install PHP Dependencies
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Step 3: Install Node Dependencies
 
-## Code of Conduct
+```bash
+npm install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Step 4: Setup Environment File
 
-## Security Vulnerabilities
+```bash
+# Copy .env.example ke .env
+cp .env.example .env
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Atau di Windows:
+copy .env.example .env
+```
 
-## License
+### Step 5: Generate Application Key
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+---
+
+## ⚙️ Konfigurasi Environment
+
+Edit file `.env` dan konfigurasi variabel berikut:
+
+```env
+# Application
+APP_NAME="Meeting Room Reservation"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+# Database
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=meetingroom_app
+DB_USERNAME=root
+DB_PASSWORD=your_password
+
+# Cache & Session
+CACHE_STORE=database
+SESSION_DRIVER=database
+SESSION_LIFETIME=120
+
+# Queue
+QUEUE_CONNECTION=database
+
+# Mail (Optional)
+MAIL_MAILER=log
+MAIL_FROM_ADDRESS="noreply@meetingroom.test"
+MAIL_FROM_NAME="Meeting Room System"
+```
+
+**Penjelasan Konfigurasi:**
+- `APP_DEBUG=true`: Mode debug untuk development
+- `APP_URL`: URL aplikasi Anda
+- `DB_*`: Konfigurasi database MySQL
+- `QUEUE_CONNECTION=database`: Menggunakan database untuk queue
+- `SESSION_DRIVER=database`: Session disimpan di database
+
+---
+
+## 🗄️ Setup Database
+
+### Step 1: Buat Database
+
+```bash
+# Login ke MySQL
+mysql -u root -p
+
+# Buat database
+CREATE DATABASE meetingroom_app CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+EXIT;
+```
+
+### Step 2: Jalankan Migrations
+
+```bash
+php artisan migrate
+```
+
+**Migrations yang akan dibuat:**
+- `users_table` - Tabel pengguna
+- `cache_table` - Tabel cache
+- `jobs_table` - Tabel background jobs
+- `rooms_table` - Tabel ruang rapat
+- `reservations_table` - Tabel reservasi
+- `permissions` dan `roles` - Spatie permission
+
+### Step 3: Jalankan Seeders (Optional)
+
+```bash
+php artisan db:seed
+```
+
+Ini akan membuat data dummy untuk development:
+- Admin user
+- Regular users
+- Sample rooms
+
+### Step 4: Verifikasi Database
+
+```bash
+php artisan tinker
+# Cek User
+>>> App\Models\User::count()
+# Cek Rooms
+>>> App\Models\Room::count()
+```
+
+---
+
+## 🎮 Running Aplikasi
+
+### Option 1: Menggunakan Artisan Serve (Simple)
+
+**Terminal 1 - Backend Server:**
+```bash
+php artisan serve
+# Aplikasi akan berjalan di http://localhost:8000
+```
+
+**Terminal 2 - Vite Dev Server (untuk hot reload):**
+```bash
+npm run dev
+# Akan berjalan di http://localhost:5173
+```
+
+### Option 2: Menggunakan Composer Script (Recommended)
+
+```bash
+composer run dev
+```
+
+Ini akan menjalankan:
+- PHP Artisan Server
+- Queue Worker
+- Vite Dev Server
+
+Secara bersamaan dalam satu terminal.
+
+### Option 3: Menggunakan Docker (Optional)
+
+Jika Anda menggunakan Docker:
+
+```bash
+docker-compose up -d
+php artisan migrate
+```
+
+---
+
+## 🧪 Testing
+
+### Jalankan Unit Tests
+
+```bash
+php artisan test
+```
+
+### Jalankan Tests dengan Coverage
+
+```bash
+php artisan test --coverage
+```
+
+### Jalankan Tests Spesifik
+
+```bash
+php artisan test tests/Feature/ExampleTest.php
+```
+
+---
+
+## 📁 Struktur Proyek
+
+```
+meetingroom-app/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/        # Business logic controllers
+│   │   ├── Middleware/         # HTTP middleware
+│   │   └── Requests/           # Form requests & validation
+│   ├── Models/                 # Eloquent models
+│   │   ├── User.php
+│   │   ├── Room.php
+│   │   └── Reservation.php
+│   └── Providers/              # Service providers
+├── bootstrap/                  # Bootstrap app configuration
+├── config/                     # Configuration files
+├── database/
+│   ├── factories/              # Model factories
+│   ├── migrations/             # Database migrations
+│   └── seeders/                # Database seeders
+├── public/                     # Publicly accessible files
+│   ├── index.php
+│   ├── storage/                # Public storage
+│   └── build/                  # Vite build output
+├── resources/
+│   ├── css/                    # CSS files
+│   │   └── app.css
+│   ├── js/                     # JavaScript files
+│   │   └── app.js
+│   └── views/                  # Blade templates
+│       ├── layouts/            # Layout templates
+│       ├── admin/              # Admin pages
+│       ├── user/               # User pages
+│       └── auth/               # Auth pages
+├── routes/
+│   ├── web.php                 # Web routes
+│   └── console.php             # Console routes
+├── storage/                    # File storage
+│   ├── app/                    # Application storage
+│   ├── logs/                   # Log files
+│   └── framework/              # Framework files
+├── tests/                      # Test files
+│   ├── Feature/                # Feature tests
+│   └── Unit/                   # Unit tests
+├── vendor/                     # Composer dependencies
+├── node_modules/               # NPM dependencies
+├── composer.json               # Composer config
+├── package.json                # NPM config
+├── vite.config.js              # Vite config
+├── .env.example                # Environment example
+├── .gitignore                  # Git ignore rules
+├── artisan                     # Artisan command
+└── README.md                   # This file
+```
+
+---
+
+## 🔐 User Login
+
+Setelah seeder dijalankan, gunakan credentials berikut:
+
+### Admin Account
+```
+Email: admin@example.com
+Password: password
+Role: Admin
+```
+
+### Regular User
+```
+Email: user@example.com
+Password: password
+Role: User
+```
+
+---
+
+## 🎨 Customization
+
+### Mengubah Theme Colors
+
+Edit file [resources/css/app.css](resources/css/app.css) dan ubah CSS custom properties:
+
+```css
+:root {
+    --primary-color: #0d6efd;      /* Biru */
+    --secondary-color: #f8f9fa;    /* Abu-abu */
+    --success-color: #198754;      /* Hijau */
+    --danger-color: #dc3545;       /* Merah */
+}
+```
+
+### Mengubah Brand Name
+
+Edit `.env`:
+```env
+APP_NAME="Nama Aplikasi Anda"
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### 1. Error: "No application encryption key has been specified"
+
+**Solusi:**
+```bash
+php artisan key:generate
+```
+
+### 2. Error: "SQLSTATE[HY000]: General error: 1030 Got error..."
+
+**Solusi:**
+```bash
+# Clear all caches
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+
+# Reset database
+php artisan migrate:fresh
+php artisan db:seed
+```
+
+### 3. Port 8000 sudah digunakan
+
+**Solusi:**
+```bash
+# Jalankan dengan port berbeda
+php artisan serve --port=8001
+```
+
+### 4. Node/npm tidak terinstall
+
+**Solusi:**
+- Download dan install dari https://nodejs.org/
+- Verify: `node --version` dan `npm --version`
+
+### 5. Composer dependencies error
+
+**Solusi:**
+```bash
+# Clear composer cache
+composer clear-cache
+
+# Update dependencies
+composer update
+```
+
+### 6. Permission denied errors (Linux/Mac)
+
+**Solusi:**
+```bash
+chmod -R 775 storage/
+chmod -R 775 bootstrap/cache/
+```
+
+---
+
+## 📚 Dokumentasi Tambahan
+
+- [REDESIGN_SUMMARY.md](REDESIGN_SUMMARY.md) - Ringkasan redesain UI
+- [STYLE_GUIDE.md](STYLE_GUIDE.md) - Panduan styling
+- [THEME_DOCUMENTATION.md](THEME_DOCUMENTATION.md) - Dokumentasi theme
+- [Laravel Documentation](https://laravel.com/docs)
+- [Bootstrap Documentation](https://getbootstrap.com/docs)
+
+---
+
+## 📝 Development Workflow
+
+### 1. Development Server
+
+```bash
+# Terminal 1
+php artisan serve
+
+# Terminal 2
+npm run dev
+```
+
+Aplikasi akan hot-reload saat Anda mengubah file.
+
+### 2. Building untuk Production
+
+```bash
+# Build assets
+npm run build
+
+# Optimize untuk production
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+### 3. Database Migrations
+
+```bash
+# Buat migration baru
+php artisan make:migration create_table_name
+
+# Jalankan migrations
+php artisan migrate
+
+# Rollback terakhir
+php artisan migrate:rollback
+```
+
+### 4. Membuat Model & Controller
+
+```bash
+# Create model with migration
+php artisan make:model ModelName -m
+
+# Create controller
+php artisan make:controller ControllerName
+
+# Create resource controller
+php artisan make:controller ControllerName -r
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions sangat welcome! Berikut step untuk berkontribusi:
+
+1. Fork repository
+2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buka Pull Request
+
+---
+
+## 📄 License
+
+Project ini dilisensikan dibawah MIT License. Lihat file [LICENSE](LICENSE) untuk details.
+
+---
+
+## ✉️ Support & Contact
+
+Jika ada pertanyaan atau issues:
+- Buka issue di repository
+- Email: support@meetingroom.test
+- Cek dokumentasi di folder `/docs` (jika tersedia)
+
+---
+
+**Happy Coding! 🚀**
